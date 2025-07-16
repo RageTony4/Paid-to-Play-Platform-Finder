@@ -55,6 +55,15 @@
             max-height: 500px; /* Adjust as needed to fit content */
             padding-top: 1.5rem; /* Equivalent to mt-6 */
         }
+        .glowing-number {
+            color: #fff;
+            text-shadow:
+                0 0 5px #fff,
+                0 0 10px #fff,
+                0 0 20px var(--glow-color),
+                0 0 30px var(--glow-color),
+                0 0 40px var(--glow-color);
+        }
     </style>
 </head>
 <body>
@@ -268,6 +277,66 @@
                 description: 'A long-running site with a low payout threshold, but has recently faced widespread complaints about reliability. Use with caution.',
                 availability: ['Global'],
                 payoutMethods: ['Gift Cards', 'Crypto']
+            },
+            {
+                id: 18,
+                name: 'Survey Junkie',
+                link: 'https://www.surveyjunkie.com/',
+                rating: 4.5,
+                payouts: 'Proven PayPal',
+                pros: ['One of the largest survey sites', 'Competitive rates', 'Fast payouts', 'Clean, updated UI'],
+                cons: ['Primarily focused on surveys', 'Fewer ways to earn than other GPT sites'],
+                description: 'A top-tier survey platform known for its massive user base, reliability, and straightforward approach to earning rewards.',
+                availability: ['US', 'Canada', 'Australia'],
+                payoutMethods: ['PayPal', 'Bank Transfer', 'Gift Cards']
+            },
+            {
+                id: 19,
+                name: 'Prime Opinion',
+                link: 'https://primeopinion.com/',
+                rating: 4.5,
+                payouts: 'Proven PayPal',
+                pros: ['Excellent mobile app', 'Generous sign-up bonus', 'Globally-friendly', 'Low cash out minimum'],
+                cons: ['Newer site with less of a track record', 'Main focus is on surveys'],
+                description: 'A rapidly growing and highly-rated survey site praised for its fantastic mobile experience and user-friendly design.',
+                availability: ['Global'],
+                payoutMethods: ['PayPal', 'Gift Cards']
+            },
+            {
+                id: 20,
+                name: 'HeyCash',
+                link: 'https://heyca.sh/',
+                rating: 4.0,
+                payouts: 'Proven PayPal',
+                pros: ['Available in over 40 countries', 'Good variety of tasks (games, apps)', 'Dozens of reward options'],
+                cons: ['As a newer site, some offers may be limited', 'Earning potential can vary'],
+                description: 'A new and legitimate GPT site with wide international availability, offering tasks like surveys, games, and app downloads.',
+                availability: ['Global'],
+                payoutMethods: ['PayPal', 'Gift Cards']
+            },
+            {
+                id: 21,
+                name: 'Five Surveys',
+                link: 'https://fivesurveys.com/',
+                rating: 4.1,
+                payouts: 'Proven PayPal',
+                pros: ['Simple $1 per survey model', 'Low $5 cash out minimum', 'Very easy to use'],
+                cons: ['Only offers surveys', 'May have fewer surveys than larger sites'],
+                description: 'A user-friendly survey site with a simple promise: earn $1 for every survey you complete, with a low payout threshold.',
+                availability: ['US'],
+                payoutMethods: ['PayPal', 'Gift Cards']
+            },
+            {
+                id: 22,
+                name: 'Surveoo',
+                link: 'https://surveoo.com/',
+                rating: 4.3,
+                payouts: 'Proven PayPal',
+                pros: ['Available in over 100 countries', 'Pays in cash or gift cards', 'Wide global reach'],
+                cons: ['Survey availability can vary by country', 'Earning potential differs by location'],
+                description: 'A legitimate and expansive international survey website, making it one of the most accessible platforms globally.',
+                availability: ['Global'],
+                payoutMethods: ['PayPal', 'Bank Transfer', 'Gift Cards']
             }
         ];
 
@@ -298,8 +367,8 @@
                 <div className="bg-gray-900 border border-gray-700/50 rounded-xl p-6 transition-all duration-300">
                     {/* Base content of the card */}
                     <div className="flex justify-between items-start">
-                        <h2 className="text-2xl font-bold text-white">{platform.name}</h2>
-                        <div className="flex items-center gap-1 bg-gray-800 px-3 py-1 rounded-full">
+                        <h2 className="text-xl sm:text-2xl font-bold text-white">{platform.name}</h2>
+                        <div className="flex items-center gap-1 bg-gray-800 px-3 py-1 rounded-full flex-shrink-0">
                             <StarIcon className="w-5 h-5 text-yellow-400" />
                             <span className="font-bold text-white">{platform.rating.toFixed(1)}</span>
                         </div>
@@ -307,7 +376,7 @@
                     <p className="text-gray-400 mt-2 text-sm">Available: {platform.availability.join(', ')}</p>
                     <p className="text-gray-400 mt-1 text-sm">Payouts: {platform.payoutMethods.join(', ')}</p>
 
-                    <div className="mt-6 flex items-center gap-4">
+                    <div className="mt-6 flex flex-wrap items-center gap-4">
                          <a href={platform.link} target="_blank" rel="noopener noreferrer" className="inline-block">
                              <button className="glowing-btn">
                                 VISIT SITE
@@ -325,7 +394,7 @@
                     <div className={`details-container ${isPreviewOpen ? 'open' : ''}`}>
                         <h3 className="text-lg font-semibold text-white mb-2">Overview</h3>
                         <p className="text-gray-300 mb-4 text-sm">{platform.description}</p>
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                             <div>
                                 <h4 className="font-semibold text-green-400 mb-2">Pros</h4>
                                 <ul className="space-y-1">
@@ -385,7 +454,8 @@
             };
 
             return (
-                <div className="bg-gray-900/50 border border-gray-800 rounded-xl p-4 mb-8 backdrop-blur-sm sticky top-4 z-20">
+                <div className="bg-gray-900/50 border border-gray-800 rounded-xl p-4 mb-8 backdrop-blur-sm lg:sticky top-4 z-20">
+                    {/* This grid is responsive: 1 col on mobile, 2 on sm, up to 5 on lg screens */}
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
                         {/* Search Filter */}
                         <div className="flex flex-col gap-2 lg:col-span-1">
@@ -522,15 +592,19 @@
             return (
                 <div className="min-h-screen bg-gray-950 text-gray-50 p-4 sm:p-6 lg:p-8">
                     <div className="max-w-7xl mx-auto">
-                        <header className="text-center my-8 md:my-12">
-                            <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight text-white">Paid-to-Play Platform Finder</h1>
-                            <p className="mt-4 text-lg text-gray-400 max-w-2xl mx-auto">Discover the best platforms to earn rewards for playing games and taking surveys.</p>
+                        <header className="text-center my-6 sm:my-8 md:my-12">
+                            <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-white">Paid-to-Play Platform Finder</h1>
+                             <div className="mt-4 text-base sm:text-lg text-gray-400">
+                                Showing <span className="text-2xl font-bold glowing-number">{filteredAndSortedPlatforms.length}</span> of <span className="font-bold text-white">{platformData.length}</span> platforms
+                            </div>
+                            <p className="mt-2 text-base sm:text-lg text-gray-400 max-w-2xl mx-auto">Discover the best platforms to earn rewards for playing games and taking surveys.</p>
                         </header>
 
                         <main>
                             <Filters filters={filters} setFilters={setFilters} allPayoutMethods={allPayoutMethods} />
                             
                             {filteredAndSortedPlatforms.length > 0 ? (
+                                /* This grid is responsive: 1 col on mobile, 2 on md, 3 on lg screens */
                                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                                     {filteredAndSortedPlatforms.map(platform => (
                                         <PlatformCard key={platform.id} platform={platform} />
