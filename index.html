@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Get-Paid-To Platform Finder</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <style>
+        :root {
+            --glow-color: hsl(210, 100%, 75%); /* A softer blue glow */
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #030712; /* bg-gray-950 */
+            color: #f9fafb; /* text-gray-50 */
+        }
+        .glowing-btn {
+            position: relative;
+            color: var(--glow-color);
+            cursor: pointer;
+            padding: 0.5em 1.2em;
+            border: 0.1em solid var(--glow-color);
+            border-radius: 0.45em;
+            background: none;
+            perspective: 2em;
+            font-family: "Inter", sans-serif;
+            font-size: 0.9em;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            -webkit-box-shadow: inset 0px 0px 0.5em 0px var(--glow-color),
+                0px 0px 0.5em 0px var(--glow-color);
+            -moz-box-shadow: inset 0px 0px 0.5em 0px var(--glow-color),
+                0px 0px 0.5em 0px var(--glow-color);
+            box-shadow: inset 0px 0px 0.5em 0px var(--glow-color),
+                0px 0px 0.5em 0px var(--glow-color);
+            transition: all 0.3s ease;
+        }
+        .glowing-btn:hover {
+            color: #030712;
+            background-color: var(--glow-color);
+            -webkit-box-shadow: 0px 0px 1em 0px var(--glow-color);
+            -moz-box-shadow: 0px 0px 1em 0px var(--glow-color);
+            box-shadow: 0px 0px 1em 0px var(--glow-color);
+        }
+        .details-container {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease-in-out, padding-top 0.5s ease-in-out;
+        }
+        .details-container.open {
+            max-height: 500px; /* Adjust as needed to fit content */
+            padding-top: 1.5rem; /* Equivalent to mt-6 */
+        }
+    </style>
+</head>
+<body>
+    <div id="root"></div>
+
+    <script type="text/babel">
+        const { useState, useMemo } = React;
+
+        // --- Data for the platforms ---
+        const platformData = [
+            {
+                id: 1,
+                name: 'Freecash.com',
+                link: 'https://freecash.com/',
+                rating: 4.6,
+                payouts: 'Proven PayPal',
+                pros: ['High-paying offers', 'Low minimum withdrawal', 'Fast payouts', 'Modern UI'],
+                cons: ['Challenging game offers', 'Survey disqualifications can occur'],
+                description: 'A leading GPT platform with a wide array of earning opportunities. Known for high payouts and a user-friendly interface.',
+                availability: ['Global'],
+                payoutMethods: ['PayPal', 'Crypto', 'Gift Cards']
+            },
+            {
+                id: 2,
+                name: 'Swagbucks',
+                link: 'https://www.swagbucks.com/',
+                rating: 4.3,
+                payouts: 'Proven PayPal',
+                pros: ['Diverse earning methods', 'Long-standing reputation', 'Reliable payouts'],
+                cons: ['Earning rate can be low for some tasks', 'Can be overwhelming for new users'],
+                description: 'A veteran in the online rewards space, offering a multitude of ways to earn, from surveys to online shopping cashback.',
+                availability: ['Most Countries'],
+                payoutMethods: ['PayPal', 'Gift Cards']
+            },
+            {
+                id: 3,
+                name: 'InboxDollars',
+                link: 'https://www.inboxdollars.com/',
+                rating: 4.2,
+                payouts: 'Proven PayPal',
+                pros: ['Earnings shown in cash', 'Simple tasks like reading emails', 'Reliable payments'],
+                cons: ['Higher minimum payout', 'Lower earning potential on some tasks'],
+                description: 'A straightforward platform where earnings are shown in cash, not points. A good option for users in the US.',
+                availability: ['US'],
+                payoutMethods: ['PayPal', 'Gift Cards', 'Check']
+            },
+            {
+                id: 4,
+                name: 'MyPoints',
+                link: 'https://www.mypoints.com/',
+                rating: 4.4,
+                payouts: 'Proven PayPal',
+                pros: ['Long and trusted history', 'Flexible reward options', 'Owned by a reputable company'],
+                cons: ['Points-to-cash rate can be complex', 'Mainly for US & Canada'],
+                description: 'An established platform offering points for surveys, games, and more, with flexible redemptions including travel miles.',
+                availability: ['US', 'Canada'],
+                payoutMethods: ['PayPal', 'Gift Cards', 'Travel Miles']
+            },
+            {
+                id: 5,
+                name: 'Mistplay',
+                link: 'https://www.mistplay.com/',
+                rating: 4.1,
+                payouts: 'Proven PayPal',
+                pros: ['Dedicated to game rewards', 'Fun way to discover new games', 'Offers PayPal rewards'],
+                cons: ['Android only', 'Earning can slow down with game progression', 'PayPal availability varies'],
+                description: 'A mobile-only app for Android users who want to get paid specifically for playing and testing new mobile games.',
+                availability: ['Varies by Region'],
+                payoutMethods: ['PayPal', 'Gift Cards']
+            },
+            {
+                id: 6,
+                name: 'PrizeRebel',
+                link: 'https://www.prizerebel.com/',
+                rating: 3.7,
+                payouts: 'Proven PayPal',
+                pros: ['Available worldwide', 'Wide range of rewards', 'Low payout threshold'],
+                cons: ['Lower user ratings', 'Some reports of crediting issues'],
+                description: 'A global GPT site offering points for surveys and offers, with a very low threshold for cashing out rewards.',
+                availability: ['Global'],
+                payoutMethods: ['PayPal', 'Crypto', 'Gift Cards']
+            }
+        ];
+
+        // --- SVG Icons ---
+        const StarIcon = ({ className }) => (
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className={className}>
+                <path fillRule="evenodd" d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.433c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.433 2.082-5.007z" clipRule="evenodd" />
+            </svg>
+        );
+
+        const CheckIcon = ({ className }) => (
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className={className}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+        );
+
+        const XCircleIcon = ({ className }) => (
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className={className}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M9.75 9.75l4.5 4.5m0-4.5l-4.5 4.5M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+        );
+
+        // --- Platform Card Component ---
+        function PlatformCard({ platform }) {
+            const [isPreviewOpen, setIsPreviewOpen] = useState(false);
+
+            return (
+                <div className="bg-gray-900 border border-gray-700/50 rounded-xl p-6 transition-all duration-300">
+                    {/* Base content of the card */}
+                    <div className="flex justify-between items-start">
+                        <h2 className="text-2xl font-bold text-white">{platform.name}</h2>
+                        <div className="flex items-center gap-1 bg-gray-800 px-3 py-1 rounded-full">
+                            <StarIcon className="w-5 h-5 text-yellow-400" />
+                            <span className="font-bold text-white">{platform.rating.toFixed(1)}</span>
+                        </div>
+                    </div>
+                    <p className="text-gray-400 mt-2 text-sm">Available: {platform.availability.join(', ')}</p>
+                    <p className="text-gray-400 mt-1 text-sm">Payouts: {platform.payoutMethods.join(', ')}</p>
+
+                    <div className="mt-6 flex items-center gap-4">
+                         <a href={platform.link} target="_blank" rel="noopener noreferrer" className="inline-block">
+                             <button className="glowing-btn">
+                                VISIT SITE
+                             </button>
+                         </a>
+                         <button 
+                            onClick={() => setIsPreviewOpen(!isPreviewOpen)} 
+                            className="glowing-btn" 
+                            style={{"--glow-color": "hsl(280, 100%, 75%)"}}>
+                            {isPreviewOpen ? 'HIDE' : 'DETAILS'}
+                         </button>
+                    </div>
+                    
+                    {/* The expanding/collapsing details container */}
+                    <div className={`details-container ${isPreviewOpen ? 'open' : ''}`}>
+                        <h3 className="text-lg font-semibold text-white mb-2">Overview</h3>
+                        <p className="text-gray-300 mb-4 text-sm">{platform.description}</p>
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div>
+                                <h4 className="font-semibold text-green-400 mb-2">Pros</h4>
+                                <ul className="space-y-1">
+                                    {platform.pros.map((pro, i) => (
+                                        <li key={i} className="flex items-start gap-2 text-sm text-gray-300">
+                                            <CheckIcon className="w-5 h-5 text-green-400 flex-shrink-0 mt-0.5" />
+                                            <span>{pro}</span>
+                                        </li>
+                                    ))}
+                                </ul>
+                            </div>
+                             <div>
+                                <h4 className="font-semibold text-red-400 mb-2">Cons</h4>
+                                <ul className="space-y-1">
+                                    {platform.cons.map((con, i) => (
+                                        <li key={i} className="flex items-start gap-2 text-sm text-gray-300">
+                                            <XCircleIcon className="w-5 h-5 text-red-400 flex-shrink-0 mt-0.5" />
+                                            <span>{con}</span>
+                                        </li>
+                                    ))}
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            );
+        }
+
+        // --- Filters Component ---
+        function Filters({ filters, setFilters, allPayoutMethods }) {
+            const handleRatingChange = (e) => {
+                setFilters(prev => ({ ...prev, minRating: parseFloat(e.target.value) }));
+            };
+
+            const handleSortChange = (e) => {
+                setFilters(prev => ({ ...prev, sortBy: e.target.value }));
+            };
+
+            const handlePayoutMethodChange = (method) => {
+                setFilters(prev => {
+                    const newMethods = new Set(prev.payoutMethods);
+                    if (newMethods.has(method)) {
+                        newMethods.delete(method);
+                    } else {
+                        newMethods.add(method);
+                    }
+                    return { ...prev, payoutMethods: Array.from(newMethods) };
+                });
+            };
+            
+            const handleAvailabilityChange = (e) => {
+                setFilters(prev => ({ ...prev, availability: e.target.value }));
+            };
+
+            return (
+                <div className="bg-gray-900/50 border border-gray-800 rounded-xl p-4 mb-8 backdrop-blur-sm sticky top-4 z-20">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                        {/* Rating Filter */}
+                        <div className="flex flex-col gap-2">
+                            <label htmlFor="rating" className="text-sm font-medium text-gray-300">Minimum Rating: {filters.minRating.toFixed(1)}</label>
+                            <input
+                                type="range"
+                                id="rating"
+                                min="0"
+                                max="5"
+                                step="0.1"
+                                value={filters.minRating}
+                                onChange={handleRatingChange}
+                                className="w-full h-2 bg-gray-700 rounded-lg appearance-none cursor-pointer"
+                            />
+                        </div>
+                        
+                        {/* Availability Filter */}
+                        <div className="flex flex-col gap-2">
+                            <label htmlFor="availability" className="text-sm font-medium text-gray-300">Availability</label>
+                             <select
+                                id="availability"
+                                value={filters.availability}
+                                onChange={handleAvailabilityChange}
+                                className="bg-gray-800 border border-gray-700 text-white text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                            >
+                                <option value="All">All Regions</option>
+                                <option value="Global">Global</option>
+                                <option value="US">US</option>
+                                <option value="Canada">Canada</option>
+                            </select>
+                        </div>
+
+                        {/* Sort By */}
+                        <div className="flex flex-col gap-2">
+                            <label htmlFor="sort" className="text-sm font-medium text-gray-300">Sort By</label>
+                            <select
+                                id="sort"
+                                value={filters.sortBy}
+                                onChange={handleSortChange}
+                                className="bg-gray-800 border border-gray-700 text-white text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                            >
+                                <option value="rating_desc">Rating: High to Low</option>
+                                <option value="rating_asc">Rating: Low to High</option>
+                                <option value="name_asc">Name: A to Z</option>
+                                <option value="name_desc">Name: Z to A</option>
+                            </select>
+                        </div>
+                        
+                        {/* Payout Method Filter */}
+                        <div className="flex flex-col gap-2">
+                             <label className="text-sm font-medium text-gray-300">Payout Methods</label>
+                             <div className="flex flex-wrap gap-x-4 gap-y-2">
+                                {allPayoutMethods.map(method => (
+                                    <div key={method} className="flex items-center">
+                                        <input
+                                            id={`payout-${method}`}
+                                            type="checkbox"
+                                            checked={filters.payoutMethods.includes(method)}
+                                            onChange={() => handlePayoutMethodChange(method)}
+                                            className="w-4 h-4 text-blue-600 bg-gray-700 border-gray-600 rounded focus:ring-blue-600 ring-offset-gray-800 focus:ring-2"
+                                        />
+                                        <label htmlFor={`payout-${method}`} className="ml-2 text-sm font-medium text-gray-300">{method}</label>
+                                    </div>
+                                ))}
+                             </div>
+                        </div>
+                    </div>
+                </div>
+            );
+        }
+
+
+        // --- Main App Component ---
+        function App() {
+            const [filters, setFilters] = useState({
+                minRating: 3.5,
+                sortBy: 'rating_desc',
+                payoutMethods: [],
+                availability: 'All',
+            });
+
+            const allPayoutMethods = useMemo(() => {
+                const methods = new Set();
+                platformData.forEach(p => p.payoutMethods.forEach(m => methods.add(m)));
+                return Array.from(methods);
+            }, []);
+
+            const filteredAndSortedPlatforms = useMemo(() => {
+                let filtered = platformData.filter(p => p.rating >= filters.minRating);
+
+                if (filters.payoutMethods.length > 0) {
+                    filtered = filtered.filter(p => 
+                        filters.payoutMethods.every(method => p.payoutMethods.includes(method))
+                    );
+                }
+                
+                if (filters.availability !== 'All') {
+                    filtered = filtered.filter(p => p.availability.includes(filters.availability) || p.availability.includes('Global') || p.availability.includes('Most Countries'));
+                }
+
+                return filtered.sort((a, b) => {
+                    switch (filters.sortBy) {
+                        case 'rating_desc':
+                            return b.rating - a.rating;
+                        case 'rating_asc':
+                            return a.rating - b.rating;
+                        case 'name_asc':
+                            return a.name.localeCompare(b.name);
+                        case 'name_desc':
+                            return b.name.localeCompare(a.name);
+                        default:
+                            return 0;
+                    }
+                });
+            }, [filters]);
+
+            return (
+                <div className="min-h-screen bg-gray-950 text-gray-50 p-4 sm:p-6 lg:p-8">
+                    <div className="max-w-7xl mx-auto">
+                        <header className="text-center my-8 md:my-12">
+                            <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight text-white">Paid-to-Play Platform Finder</h1>
+                            <p className="mt-4 text-lg text-gray-400 max-w-2xl mx-auto">Discover the best platforms to earn rewards for playing games and taking surveys.</p>
+                        </header>
+
+                        <main>
+                            <Filters filters={filters} setFilters={setFilters} allPayoutMethods={allPayoutMethods} />
+                            
+                            {filteredAndSortedPlatforms.length > 0 ? (
+                                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                                    {filteredAndSortedPlatforms.map(platform => (
+                                        <PlatformCard key={platform.id} platform={platform} />
+                                    ))}
+                                </div>
+                            ) : (
+                                <div className="text-center py-16 px-4 bg-gray-900 rounded-lg">
+                                    <h3 className="text-xl font-semibold text-white">No Platforms Found</h3>
+                                    <p className="text-gray-400 mt-2">Try adjusting your filters to find more results.</p>
+                                </div>
+                            )}
+                        </main>
+                        
+                        <footer className="text-center mt-12 py-6 border-t border-gray-800">
+                            <p className="text-sm text-gray-500">Ratings and information are based on publicly available data and may change.</p>
+                        </footer>
+                    </div>
+                </div>
+            );
+        }
+
+        const container = document.getElementById('root');
+        const root = ReactDOM.createRoot(container);
+        root.render(<App />);
+    </script>
+</body>
+</html>
