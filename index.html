@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Get-Paid-To Platform Finder</title>
+    <title>GPT & Micro-task Finder for 2025</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
     <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
@@ -11,7 +11,7 @@
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
     <style>
         :root {
-            --glow-color: hsl(210, 100%, 75%); /* A softer blue glow */
+            --glow-color: hsl(50, 100%, 70%); /* A golden glow */
         }
         body {
             font-family: 'Inter', sans-serif;
@@ -76,267 +76,185 @@
         const platformData = [
             {
                 id: 1,
-                name: 'Freecash.com',
-                link: 'https://freecash.com/',
+                name: 'FreeCash',
+                link: 'https://freecash.com/r/BeermoneyGlobal',
+                payRate: '$1 - $10/hr (Varies)',
                 rating: 4.6,
-                payouts: 'Proven PayPal',
-                pros: ['High-paying offers', 'Low minimum withdrawal', 'Fast payouts', 'Modern UI'],
-                cons: ['Challenging game offers', 'Survey disqualifications can occur'],
-                description: 'A leading GPT platform with a wide array of earning opportunities. Known for high payouts and a user-friendly interface.',
-                availability: ['Global'],
-                payoutMethods: ['PayPal', 'Crypto', 'Gift Cards']
-            },
-            {
-                id: 2,
-                name: 'Swagbucks',
-                link: 'https://www.swagbucks.com/',
-                rating: 4.3,
-                payouts: 'Proven PayPal',
-                pros: ['Diverse earning methods', 'Long-standing reputation', 'Reliable payouts'],
-                cons: ['Earning rate can be low for some tasks', 'Can be overwhelming for new users'],
-                description: 'A veteran in the online rewards space, offering a multitude of ways to earn, from surveys to online shopping cashback.',
-                availability: ['Most Countries'],
-                payoutMethods: ['PayPal', 'Gift Cards']
-            },
-            {
-                id: 3,
-                name: 'InboxDollars',
-                link: 'https://www.inboxdollars.com/',
-                rating: 4.2,
-                payouts: 'Proven PayPal',
-                pros: ['Earnings shown in cash', 'Simple tasks like reading emails', 'Reliable payments'],
-                cons: ['Higher minimum payout', 'Lower earning potential on some tasks'],
-                description: 'A straightforward platform where earnings are shown in cash, not points. A good option for users in the US.',
-                availability: ['US'],
-                payoutMethods: ['PayPal', 'Gift Cards', 'Check']
-            },
-            {
-                id: 4,
-                name: 'MyPoints',
-                link: 'https://www.mypoints.com/',
-                rating: 4.4,
-                payouts: 'Proven PayPal',
-                pros: ['Long and trusted history', 'Flexible reward options', 'Owned by a reputable company'],
-                cons: ['Points-to-cash rate can be complex', 'Mainly for US & Canada'],
-                description: 'An established platform offering points for surveys, games, and more, with flexible redemptions including travel miles.',
-                availability: ['US', 'Canada'],
-                payoutMethods: ['PayPal', 'Gift Cards', 'Travel Miles']
-            },
-            {
-                id: 5,
-                name: 'Mistplay',
-                link: 'https://www.mistplay.com/',
-                rating: 4.1,
-                payouts: 'Proven PayPal',
-                pros: ['Dedicated to game rewards', 'Fun way to discover new games', 'Offers PayPal rewards'],
-                cons: ['Android only', 'Earning can slow down with game progression', 'PayPal availability varies'],
-                description: 'A mobile-only app for Android users who want to get paid specifically for playing and testing new mobile games.',
-                availability: ['Varies by Region'],
-                payoutMethods: ['PayPal', 'Gift Cards']
-            },
-            {
-                id: 6,
-                name: 'PrizeRebel',
-                link: 'https://www.prizerebel.com/',
-                rating: 3.7,
-                payouts: 'Proven PayPal',
-                pros: ['Available worldwide', 'Wide range of rewards', 'Low payout threshold'],
-                cons: ['Lower user ratings', 'Some reports of crediting issues'],
-                description: 'A global GPT site offering points for surveys and offers, with a very low threshold for cashing out rewards.',
-                availability: ['Global'],
-                payoutMethods: ['PayPal', 'Crypto', 'Gift Cards']
-            },
-            {
-                id: 7,
-                name: 'Dobalo',
-                link: 'https://app.dobalo.com/',
-                rating: 4.2,
-                payouts: 'Proven PayPal',
-                pros: ['Clean user interface', 'Good variety of offers', 'Low redemption minimums'],
-                cons: ['Newer site, less history', 'Earning potential varies'],
-                description: 'A new and promising rewards website with a great UI and fun reward chest system for daily engagement.',
-                availability: ['Global'],
-                payoutMethods: ['PayPal', 'Gift Cards']
-            },
-            {
-                id: 8,
-                name: 'Scrambly',
-                link: 'https://scrambly.io/',
-                rating: 4.4,
-                payouts: 'Proven PayPal',
-                pros: ['Lightning-fast cashouts', 'Very low $1 withdrawal minimum', 'Good variety of games'],
-                cons: ['Android-only app version', 'Some offers require signups'],
-                description: 'A popular platform known for its incredibly fast payouts and low cash-out threshold, making it easy to get your earnings.',
-                availability: ['US', 'Canada'],
-                payoutMethods: ['PayPal', 'Gift Cards']
+                pros: ['High-paying offers', 'Low withdrawal minimum', 'Wide variety of payout options'],
+                cons: ['Can be competitive', 'Some offers require deposits'],
+                description: 'A leading GPT site known for high-paying game offers and a modern interface. Offers payouts in PayPal, crypto, and gift cards.',
+                taskTypes: ['Playing Games', 'Surveys', 'Offers'],
+                paymentProofUrl: 'https://i.imgur.com/bk8tonH.png',
+                trustpilotUrl: 'https://www.trustpilot.com/review/freecash.com'
             },
             {
                 id: 9,
-                name: 'ySense',
-                link: 'https://www.ysense.com/',
-                rating: 4.0,
-                payouts: 'Proven PayPal',
-                pros: ['Very globally-friendly', 'Multiple earning options', 'Established platform (formerly ClixSense)'],
-                cons: ['Can take time to get used to the interface', 'Survey availability depends on region'],
-                description: 'A well-established and globally-focused GPT site with numerous ways to earn, including surveys and cash game offers.',
-                availability: ['Global'],
-                payoutMethods: ['PayPal', 'Skrill', 'Gift Cards']
+                name: 'Reward XP',
+                link: 'https://rewardxp.com/beermoneyglobal',
+                payRate: '$2 - $10/hr (Varies)',
+                rating: 4.5,
+                pros: ['Excellent for gamers', 'High-paying game offers', 'Active community on Discord'],
+                cons: ['Fewer options for non-gamers', 'Earning is slower without game offers'],
+                description: 'A rewards platform built for gamers. Earn "XP" by playing popular PC and mobile games, then redeem for cash or game codes.',
+                taskTypes: ['Playing Games', 'Surveys', 'Videos'],
+                paymentProofUrl: 'https://imgur.com/gallery/s3nn29M',
+                trustpilotUrl: 'https://www.trustpilot.com/review/rewardxp.com'
             },
-            {
+             {
                 id: 10,
-                name: 'KashKick',
-                link: 'https://kashkick.com/',
-                rating: 4.2,
-                payouts: 'Proven PayPal',
-                pros: ['Straightforward cash rewards', 'Good gaming offers', 'Pays directly to PayPal'],
-                cons: ['Higher withdrawal minimum ($10)', 'Primarily for US users'],
-                description: 'A rewards platform focused on providing cash for playing games, taking surveys, and completing other simple tasks.',
-                availability: ['US'],
-                payoutMethods: ['PayPal']
-            },
-            {
-                id: 11,
-                name: 'Branded Surveys',
-                link: 'https://surveys.gobranded.com/',
-                rating: 4.1,
-                payouts: 'Proven PayPal',
-                pros: ['Good loyalty program', 'User-friendly interface', 'Many survey options'],
-                cons: ['Difficult to qualify for some surveys', 'Payouts can sometimes be slow'],
-                description: 'A popular survey-focused platform that rewards users with a tiered loyalty program for consistent activity.',
-                availability: ['US', 'UK', 'Canada'],
-                payoutMethods: ['PayPal', 'Direct Deposit', 'Gift Cards']
-            },
-            {
-                id: 12,
-                name: 'JumpTask',
-                link: 'https://jumptask.io/',
-                rating: 4.7,
-                payouts: 'Crypto',
-                pros: ['Excellent Trustpilot rating', 'Instant crypto payouts', 'Wide variety of tasks', 'No minimum withdrawal'],
-                cons: ['Pays in cryptocurrency ($JMPT)', 'Requires a crypto wallet'],
-                description: 'A modern microtask platform that rewards users instantly with its native cryptocurrency, $JMPT, for a wide range of tasks.',
-                availability: ['Global'],
-                payoutMethods: ['Crypto']
+                name: 'Gain.gg',
+                link: 'https://gain.gg/r/104947425048580797581',
+                payRate: '$2 - $8/hr (Varies)',
+                rating: 4.5,
+                pros: ['Fast payouts, especially crypto', 'Low withdrawal minimum', 'Great selection of offer walls'],
+                cons: ['Main focus is on crypto payouts', 'Can be competitive'],
+                description: 'A modern and sleek GPT site with a focus on quick crypto payouts. Earn by completing offers from a wide range of partners.',
+                taskTypes: ['Offers', 'Surveys', 'Playing Games'],
+                paymentProofUrl: 'https://i.imgur.com/jEufQ2L.png',
+                trustpilotUrl: 'https://www.trustpilot.com/review/gain.gg'
             },
             {
                 id: 13,
-                name: 'Cointiply',
-                link: 'https://cointiply.com/',
+                name: 'PaidViewpoint',
+                link: 'https://paidviewpoint.com/?r=hhxnqh',
+                payRate: '$2 - $5/hr (Varies)',
+                rating: 4.5,
+                pros: ['Never get screened out of surveys', 'High trust score and clean interface', 'Build a "TraitScore" for higher pay'],
+                cons: ['Lower earning potential overall', 'Fewer surveys available than other sites'],
+                description: 'A unique survey platform that guarantees you\'ll never be screened out mid-survey. Focuses on building a "TraitScore" to receive more and better-paying surveys.',
+                taskTypes: ['Surveys'],
+                paymentProofUrl: 'https://imgur.com/jNIBa8S',
+                trustpilotUrl: 'https://www.trustpilot.com/review/paidviewpoint.com'
+            },
+            {
+                id: 6,
+                name: 'Swagbucks',
+                link: 'https://www.swagbucks.com/p/register?rb=57212158',
+                payRate: '$1 - $5/hr (Varies)',
+                rating: 4.3,
+                pros: ['Huge variety of ways to earn', 'Very reputable company', 'Mobile apps for on-the-go earning'],
+                cons: ['Can be overwhelming', 'Low pay for simple tasks like videos'],
+                description: 'One of the most popular rewards sites online. Earn points (SB) for surveys, playing games, watching videos, shopping online, and more.',
+                taskTypes: ['Surveys', 'Playing Games', 'Offers', 'Cashback'],
+                paymentProofUrl: 'https://i.imgur.com/1P5493s.jpg',
+                trustpilotUrl: 'https://www.trustpilot.com/review/swagbucks.com'
+            },
+            {
+                id: 3,
+                name: 'Toloka',
+                link: 'https://toloka.yandex.com/promo?referralCode=YGUHBUJZ',
+                payRate: '$1 - $10/hr (Varies)',
+                rating: 4.3,
+                pros: ['Excellent mobile app', 'Good variety of tasks', 'Low minimum withdrawal'],
+                cons: ['Pay can be low', 'Some tasks are not always available'],
+                description: 'A global crowdsourcing platform with a strong mobile app, making it easy to complete small tasks like image annotation and search evaluation on the go.',
+                taskTypes: ['Data Annotation', 'Search Evaluation', 'Surveys'],
+                paymentProofUrl: 'https://imgur.com/ChYcvKW',
+                trustpilotUrl: 'https://www.trustpilot.com/review/toloka.ai'
+            },
+            {
+                id: 2,
+                name: 'ySense',
+                link: 'https://www.ySense.com/?r=59407158',
+                payRate: '$1 - $5/hr (Varies)',
                 rating: 4.2,
-                payouts: 'Crypto',
-                pros: ['Excellent for earning crypto', 'Crypto faucet for regular claims', 'Earn interest on your balance'],
-                cons: ['Crypto-only payouts', 'Low earning rate for some tasks'],
-                description: 'A leading platform for earning free cryptocurrency like Bitcoin by completing surveys, playing games, and using their crypto faucet.',
-                availability: ['Global'],
-                payoutMethods: ['Crypto']
+                pros: ['Long-standing and trustworthy', 'Available globally', 'Many ways to earn'],
+                cons: ['Interface can feel dated', 'Low pay for some tasks'],
+                description: 'A well-established GPT platform (formerly ClixSense) with a global user base and numerous earning opportunities like surveys, offers, and tasks.',
+                taskTypes: ['Surveys', 'Offers', 'Micro-tasks'],
+                paymentProofUrl: 'https://i.imgur.com/oiGHbqH.png',
+                trustpilotUrl: 'https://www.trustpilot.com/review/ysense.com'
+            },
+            {
+                id: 12,
+                name: 'Clickworker',
+                link: 'https://www.clickworker.com/en/clickworker?utm_source=326131&utm_campaign=CW4CW&utm_medium=email',
+                payRate: '$5 - $15/hr (Varies)',
+                rating: 4.1,
+                pros: ['Access to UHRS tasks', 'Reliable weekly/monthly payments', 'Good for long-term work'],
+                cons: ['UHRS access requires passing tests', 'Work can be repetitive'],
+                description: 'A popular micro-task platform where you can earn money by completing small jobs. Its main draw is providing access to UHRS (Universal Human Relevance System).',
+                taskTypes: ['Micro-tasks', 'Data Categorization', 'Search Evaluation (UHRS)'],
+                paymentProofUrl: 'https://i.imgur.com/PXwTYKk.png',
+                trustpilotUrl: 'https://www.trustpilot.com/review/www.clickworker.com'
             },
             {
                 id: 14,
-                name: 'TimeBucks',
-                link: 'https://timebucks.com/',
+                name: 'Lifepoints',
+                link: 'https://www.lifepointspanel.com',
+                payRate: '$1 - $5/hr (Varies)',
+                rating: 4.1,
+                pros: ['Run by a major market research company', 'Simple, straightforward survey platform', 'Reliable payouts'],
+                cons: ['Only offers surveys', 'Can have frequent screenouts'],
+                description: 'A major global market research panel where you can share your opinion on products and services to earn rewards like PayPal and gift cards.',
+                taskTypes: ['Surveys'],
+                paymentProofUrl: 'https://i.imgur.com/tWYPoMP.png',
+                trustpilotUrl: 'https://www.trustpilot.com/review/lifepointspanel.com'
+            },
+            {
+                id: 5,
+                name: 'SerpClix',
+                link: 'https://serpclix.com/users/referrals/AF1O485MCVPTQ6X5QI9PLM9X1',
+                payRate: '$0.05 - $0.10 / click',
+                rating: 4.0,
+                pros: ['Very easy work', 'Browser extension makes it simple', 'Reliable monthly payouts'],
+                cons: ['Low earning potential', 'Requires installing a browser extension', 'Limited number of tasks per day'],
+                description: 'A unique platform where you get paid to visit websites from search engine results, helping clients improve their SEO ranking.',
+                taskTypes: ['Paid Clicks', 'Search Tasks'],
+                paymentProofUrl: 'https://i.imgur.com/WWTTUoF.png',
+                trustpilotUrl: null
+            },
+            {
+                id: 8,
+                name: 'Keep Rewarding',
+                link: 'https://keeprewarding.com/home?ref=Proim',
+                payRate: '$1 - $4/hr (Varies)',
+                rating: 4.0,
+                pros: ['Very low $1 payout threshold', 'Many ways to earn', 'Daily bonuses'],
+                cons: ['Website interface is dated', 'Offer quality can be mixed'],
+                description: 'A classic GPT site with a variety of ways to earn, including surveys, offers, and watching videos. Known for its low payout minimum.',
+                taskTypes: ['Surveys', 'Offers', 'Videos'],
+                paymentProofUrl: 'https://imgur.com/gfwNMfI',
+                trustpilotUrl: null
+            },
+            {
+                id: 11,
+                name: 'Timebucks',
+                link: 'https://timebucks.com/?refID=217531224',
+                payRate: '$1 - $4/hr (Varies)',
                 rating: 3.8,
-                payouts: 'Multiple Options',
                 pros: ['Huge variety of unique tasks', 'Weekly payouts', 'Available globally'],
                 cons: ['Low earning potential on many tasks', 'No direct PayPal option', 'Cluttered interface'],
-                description: 'A global GPT site with a vast range of small tasks, from watching videos to social media posts, with weekly payouts.',
-                availability: ['Global'],
-                payoutMethods: ['Bank Transfer', 'Skrill', 'Crypto']
+                description: 'A global GPT site with a vast range of small tasks, from watching videos and social media posts to installing apps and taking surveys.',
+                taskTypes: ['Surveys', 'Offers', 'Paid Clicks', 'Social Media Tasks'],
+                paymentProofUrl: 'https://imgur.com/aJZR7Fc',
+                trustpilotUrl: 'https://www.trustpilot.com/review/timebucks.com'
             },
             {
-                id: 15,
+                id: 4,
+                name: 'PrizeRebel',
+                link: 'https://www.prizerebel.com/index.php?r=7508711',
+                payRate: '$1 - $6/hr (Varies)',
+                rating: 3.7,
+                pros: ['Very low payout threshold ($2)', 'Wide range of gift cards', 'Available globally'],
+                cons: ['Lower user ratings', 'Some reports of crediting issues'],
+                description: 'A long-running GPT site where you can earn points from surveys and offers and redeem them for PayPal, crypto, or a huge variety of gift cards.',
+                taskTypes: ['Surveys', 'Offers', 'Videos'],
+                paymentProofUrl: 'https://i.imgur.com/0pCGwJN.png',
+                trustpilotUrl: 'https://www.trustpilot.com/review/prizerebel.com'
+            },
+            {
+                id: 7,
                 name: 'GG2U',
-                link: 'https://www.gg2u.org/',
+                link: 'https://premium.gg2u.org?referrer=proim',
+                payRate: '$1 - $7/hr (Varies)',
                 rating: 3.5,
-                payouts: 'Proven PayPal',
                 pros: ['Focus on gaming & videos', 'Low $7 payout threshold', 'Bonus "golden ticket" system'],
-                cons: ['Low earning rate', 'Confusing point system', 'App can be buggy'],
-                description: 'A rewards program with a strong focus on gaming, surveys, and watching videos, offering a unique bonus system.',
-                availability: ['Global'],
-                payoutMethods: ['PayPal', 'Crypto']
-            },
-            {
-                id: 16,
-                name: 'Earnably',
-                link: 'https://earnably.com/',
-                rating: 3.9,
-                payouts: 'Proven PayPal',
-                pros: ['Very low $1 minimum payout', 'Clean interface', 'Instant rewards available'],
-                cons: ['Fewer earning options than larger sites', 'Limited offer availability'],
-                description: 'A straightforward and easy-to-use GPT site with instant rewards and one of the lowest payout thresholds available.',
-                availability: ['Global'],
-                payoutMethods: ['PayPal', 'Gift Cards']
-            },
-            {
-                id: 17,
-                name: 'InstaGC',
-                link: 'https://www.instagc.com/',
-                rating: 2.5,
-                payouts: 'Gift Cards',
-                pros: ['Very low $1 payout threshold', 'Huge variety of gift cards'],
-                cons: ['Many recent user complaints', 'Reported payment delays & issues', 'Unresponsive support', 'Proceed with caution'],
-                description: 'A long-running site with a low payout threshold, but has recently faced widespread complaints about reliability. Use with caution.',
-                availability: ['Global'],
-                payoutMethods: ['Gift Cards', 'Crypto']
-            },
-            {
-                id: 18,
-                name: 'Survey Junkie',
-                link: 'https://www.surveyjunkie.com/',
-                rating: 4.5,
-                payouts: 'Proven PayPal',
-                pros: ['One of the largest survey sites', 'Competitive rates', 'Fast payouts', 'Clean, updated UI'],
-                cons: ['Primarily focused on surveys', 'Fewer ways to earn than other GPT sites'],
-                description: 'A top-tier survey platform known for its massive user base, reliability, and straightforward approach to earning rewards.',
-                availability: ['US', 'Canada', 'Australia'],
-                payoutMethods: ['PayPal', 'Bank Transfer', 'Gift Cards']
-            },
-            {
-                id: 19,
-                name: 'Prime Opinion',
-                link: 'https://primeopinion.com/',
-                rating: 4.5,
-                payouts: 'Proven PayPal',
-                pros: ['Excellent mobile app', 'Generous sign-up bonus', 'Globally-friendly', 'Low cash out minimum'],
-                cons: ['Newer site with less of a track record', 'Main focus is on surveys'],
-                description: 'A rapidly growing and highly-rated survey site praised for its fantastic mobile experience and user-friendly design.',
-                availability: ['Global'],
-                payoutMethods: ['PayPal', 'Gift Cards']
-            },
-            {
-                id: 20,
-                name: 'HeyCash',
-                link: 'https://heyca.sh/',
-                rating: 4.0,
-                payouts: 'Proven PayPal',
-                pros: ['Available in over 40 countries', 'Good variety of tasks (games, apps)', 'Dozens of reward options'],
-                cons: ['As a newer site, some offers may be limited', 'Earning potential can vary'],
-                description: 'A new and legitimate GPT site with wide international availability, offering tasks like surveys, games, and app downloads.',
-                availability: ['Global'],
-                payoutMethods: ['PayPal', 'Gift Cards']
-            },
-            {
-                id: 21,
-                name: 'Five Surveys',
-                link: 'https://fivesurveys.com/',
-                rating: 4.1,
-                payouts: 'Proven PayPal',
-                pros: ['Simple $1 per survey model', 'Low $5 cash out minimum', 'Very easy to use'],
-                cons: ['Only offers surveys', 'May have fewer surveys than larger sites'],
-                description: 'A user-friendly survey site with a simple promise: earn $1 for every survey you complete, with a low payout threshold.',
-                availability: ['US'],
-                payoutMethods: ['PayPal', 'Gift Cards']
-            },
-            {
-                id: 22,
-                name: 'Surveoo',
-                link: 'https://surveoo.com/',
-                rating: 4.3,
-                payouts: 'Proven PayPal',
-                pros: ['Available in over 100 countries', 'Pays in cash or gift cards', 'Wide global reach'],
-                cons: ['Survey availability can vary by country', 'Earning potential differs by location'],
-                description: 'A legitimate and expansive international survey website, making it one of the most accessible platforms globally.',
-                availability: ['Global'],
-                payoutMethods: ['PayPal', 'Bank Transfer', 'Gift Cards']
+                cons: ['Low earning rate on some tasks', 'Confusing point system'],
+                description: 'A rewards program with a strong focus on gaming, surveys, and watching videos, offering a unique bonus system for active users.',
+                taskTypes: ['Playing Games', 'Surveys', 'Videos'],
+                paymentProofUrl: 'https://imgur.com/WwZzxj4',
+                trustpilotUrl: null
             }
         ];
 
@@ -358,23 +276,31 @@
                 <path strokeLinecap="round" strokeLinejoin="round" d="M9.75 9.75l4.5 4.5m0-4.5l-4.5 4.5M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
             </svg>
         );
+        
+        const LightbulbIcon = ({ className }) => (
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className={className}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M12 18v-5.25m0 0a6.01 6.01 0 001.5-.189m-1.5.189a6.01 6.01 0 01-1.5-.189m3.75 7.478a12.06 12.06 0 01-4.5 0m3.75 2.311a7.5 7.5 0 00-7.5 0c.065.21.145.421.24.632l.008.017a.25.25 0 00.416.016l.21-.419a.25.25 0 01.416 0l.21.419a.25.25 0 00.416 0l.21-.419a.25.25 0 01.416 0l.21.419a.25.25 0 00.416 0l.21-.419a.25.25 0 01.416 0l.21.419a.25.25 0 00.416 0l.24-.632a7.5 7.5 0 00-7.5-7.5zm-3.75 7.478a12.06 12.06 0 004.5 0" />
+            </svg>
+        );
 
         // --- Platform Card Component ---
         function PlatformCard({ platform }) {
             const [isPreviewOpen, setIsPreviewOpen] = useState(false);
 
             return (
-                <div className="bg-gray-900 border border-gray-700/50 rounded-xl p-6 transition-all duration-300">
+                <div className="bg-gray-900 border border-gray-700/50 rounded-xl p-6 transition-all duration-300 flex flex-col">
                     {/* Base content of the card */}
-                    <div className="flex justify-between items-start">
-                        <h2 className="text-xl sm:text-2xl font-bold text-white">{platform.name}</h2>
-                        <div className="flex items-center gap-1 bg-gray-800 px-3 py-1 rounded-full flex-shrink-0">
-                            <StarIcon className="w-5 h-5 text-yellow-400" />
-                            <span className="font-bold text-white">{platform.rating.toFixed(1)}</span>
+                    <div className="flex-grow">
+                        <div className="flex justify-between items-start">
+                            <h2 className="text-xl sm:text-2xl font-bold text-white">{platform.name}</h2>
+                            <div className="flex items-center gap-1 bg-gray-800 px-3 py-1 rounded-full flex-shrink-0">
+                                <StarIcon className="w-5 h-5 text-yellow-400" />
+                                <span className="font-bold text-white">{platform.rating.toFixed(1)}</span>
+                            </div>
                         </div>
+                        <p className="text-gray-300 mt-2 text-md font-semibold">{platform.payRate}</p>
+                        <p className="text-gray-400 mt-1 text-sm">Common Tasks: {platform.taskTypes.join(', ')}</p>
                     </div>
-                    <p className="text-gray-400 mt-2 text-sm">Available: {platform.availability.join(', ')}</p>
-                    <p className="text-gray-400 mt-1 text-sm">Payouts: {platform.payoutMethods.join(', ')}</p>
 
                     <div className="mt-6 flex flex-wrap items-center gap-4">
                          <a href={platform.link} target="_blank" rel="noopener noreferrer" className="inline-block">
@@ -388,6 +314,20 @@
                             style={{"--glow-color": "hsl(280, 100%, 75%)"}}>
                             {isPreviewOpen ? 'HIDE' : 'DETAILS'}
                          </button>
+                         {platform.paymentProofUrl && (
+                            <a href={platform.paymentProofUrl} target="_blank" rel="noopener noreferrer" className="inline-block">
+                                <button className="glowing-btn" style={{"--glow-color": "hsl(140, 100%, 70%)"}}>
+                                    PROOF
+                                </button>
+                            </a>
+                         )}
+                         {platform.trustpilotUrl && (
+                            <a href={platform.trustpilotUrl} target="_blank" rel="noopener noreferrer" className="inline-block">
+                                <button className="glowing-btn" style={{"--glow-color": "hsl(180, 100%, 70%)"}}>
+                                    TRUSTPILOT
+                                </button>
+                            </a>
+                         )}
                     </div>
                     
                     {/* The expanding/collapsing details container */}
@@ -424,41 +364,23 @@
         }
 
         // --- Filters Component ---
-        function Filters({ filters, setFilters, allPayoutMethods }) {
-            const handleRatingChange = (e) => {
-                setFilters(prev => ({ ...prev, minRating: parseFloat(e.target.value) }));
+        function Filters({ filters, setFilters, allTaskTypes }) {
+             const handleSearchChange = (e) => {
+                setFilters(prev => ({ ...prev, searchTerm: e.target.value }));
             };
-
+            
             const handleSortChange = (e) => {
                 setFilters(prev => ({ ...prev, sortBy: e.target.value }));
             };
-
-            const handlePayoutMethodChange = (method) => {
-                setFilters(prev => {
-                    const newMethods = new Set(prev.payoutMethods);
-                    if (newMethods.has(method)) {
-                        newMethods.delete(method);
-                    } else {
-                        newMethods.add(method);
-                    }
-                    return { ...prev, payoutMethods: Array.from(newMethods) };
-                });
-            };
             
-            const handleAvailabilityChange = (e) => {
-                setFilters(prev => ({ ...prev, availability: e.target.value }));
-            };
-            
-            const handleSearchChange = (e) => {
-                setFilters(prev => ({ ...prev, searchTerm: e.target.value }));
+            const handleTaskTypeChange = (e) => {
+                setFilters(prev => ({ ...prev, taskType: e.target.value }));
             };
 
             return (
                 <div className="bg-gray-900/50 border border-gray-800 rounded-xl p-4 mb-8 backdrop-blur-sm lg:sticky top-4 z-20">
-                    {/* This grid is responsive: 1 col on mobile, 2 on sm, up to 5 on lg screens */}
-                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
-                        {/* Search Filter */}
-                        <div className="flex flex-col gap-2 lg:col-span-1">
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                        <div className="flex flex-col gap-2">
                             <label htmlFor="search" className="text-sm font-medium text-gray-300">Search by Name</label>
                             <input
                                 type="text"
@@ -469,39 +391,18 @@
                                 className="bg-gray-800 border border-gray-700 text-white text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                             />
                         </div>
-                        {/* Rating Filter */}
-                        <div className="flex flex-col gap-2">
-                            <label htmlFor="rating" className="text-sm font-medium text-gray-300">Minimum Rating: {filters.minRating.toFixed(1)}</label>
-                            <input
-                                type="range"
-                                id="rating"
-                                min="0"
-                                max="5"
-                                step="0.1"
-                                value={filters.minRating}
-                                onChange={handleRatingChange}
-                                className="w-full h-2 bg-gray-700 rounded-lg appearance-none cursor-pointer"
-                            />
-                        </div>
-                        
-                        {/* Availability Filter */}
-                        <div className="flex flex-col gap-2">
-                            <label htmlFor="availability" className="text-sm font-medium text-gray-300">Availability</label>
-                             <select
-                                id="availability"
-                                value={filters.availability}
-                                onChange={handleAvailabilityChange}
+                         <div className="flex flex-col gap-2">
+                            <label htmlFor="taskType" className="text-sm font-medium text-gray-300">Task Type</label>
+                            <select
+                                id="taskType"
+                                value={filters.taskType}
+                                onChange={handleTaskTypeChange}
                                 className="bg-gray-800 border border-gray-700 text-white text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                             >
-                                <option value="All">All Regions</option>
-                                <option value="Global">Global</option>
-                                <option value="US">US</option>
-                                <option value="Canada">Canada</option>
-                                <option value="UK">UK</option>
+                                <option value="All">All Task Types</option>
+                                {allTaskTypes.map(type => <option key={type} value={type}>{type}</option>)}
                             </select>
                         </div>
-
-                        {/* Sort By */}
                         <div className="flex flex-col gap-2">
                             <label htmlFor="sort" className="text-sm font-medium text-gray-300">Sort By</label>
                             <select
@@ -516,61 +417,59 @@
                                 <option value="name_desc">Name: Z to A</option>
                             </select>
                         </div>
-                        
-                        {/* Payout Method Filter */}
-                        <div className="flex flex-col gap-2">
-                             <label className="text-sm font-medium text-gray-300">Payout Methods</label>
-                             <div className="flex flex-wrap gap-x-4 gap-y-2">
-                                {allPayoutMethods.map(method => (
-                                    <div key={method} className="flex items-center">
-                                        <input
-                                            id={`payout-${method}`}
-                                            type="checkbox"
-                                            checked={filters.payoutMethods.includes(method)}
-                                            onChange={() => handlePayoutMethodChange(method)}
-                                            className="w-4 h-4 text-blue-600 bg-gray-700 border-gray-600 rounded focus:ring-blue-600 ring-offset-gray-800 focus:ring-2"
-                                        />
-                                        <label htmlFor={`payout-${method}`} className="ml-2 text-sm font-medium text-gray-300">{method}</label>
-                                    </div>
-                                ))}
-                             </div>
-                        </div>
+                    </div>
+                </div>
+            );
+        }
+        
+        // --- Tips Section ---
+        function TipsSection() {
+            const tips = [
+                { title: 'Be Patient', description: 'Earning significant money takes time. Start with small tasks to build your reputation and unlock higher-paying opportunities.' },
+                { title: 'Enable Cookies', description: 'Many offer walls use tracking cookies to credit your account correctly. Ensure your browser allows them, or use a dedicated browser for these tasks.' },
+                { title: 'Use Multiple Platforms', description: 'Don\'t rely on a single site. Using several platforms increases your chances of finding consistent work.' },
+                { title: 'Check for Bonuses', description: 'Many sites offer daily, weekly, or monthly bonuses for consistency. Completing these can significantly boost your overall earnings.'}
+            ];
+
+            return (
+                <div className="mt-16">
+                    <h2 className="text-2xl sm:text-3xl font-bold text-center mb-8 text-white">Tips for Micro-task Success</h2>
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                        {tips.map(tip => (
+                            <div key={tip.title} className="bg-gray-900/50 border border-gray-800 rounded-lg p-6">
+                                <div className="flex items-center gap-3">
+                                    <LightbulbIcon className="w-6 h-6 text-yellow-400" />
+                                    <h3 className="text-lg font-semibold text-white">{tip.title}</h3>
+                                </div>
+                                <p className="mt-2 text-gray-400 text-sm">{tip.description}</p>
+                            </div>
+                        ))}
                     </div>
                 </div>
             );
         }
 
-
         // --- Main App Component ---
         function App() {
             const [filters, setFilters] = useState({
-                minRating: 2.0,
                 sortBy: 'rating_desc',
-                payoutMethods: [],
-                availability: 'All',
                 searchTerm: '',
+                taskType: 'All'
             });
 
-            const allPayoutMethods = useMemo(() => {
-                const methods = new Set();
-                platformData.forEach(p => p.payoutMethods.forEach(m => methods.add(m)));
-                return Array.from(methods).sort();
+            const allTaskTypes = useMemo(() => {
+                const types = new Set();
+                platformData.forEach(p => p.taskTypes.forEach(t => types.add(t)));
+                return Array.from(types).sort();
             }, []);
 
             const filteredAndSortedPlatforms = useMemo(() => {
                 let filtered = platformData.filter(p => 
-                    p.name.toLowerCase().includes(filters.searchTerm.toLowerCase()) &&
-                    p.rating >= filters.minRating
+                    p.name.toLowerCase().includes(filters.searchTerm.toLowerCase())
                 );
 
-                if (filters.payoutMethods.length > 0) {
-                    filtered = filtered.filter(p => 
-                        filters.payoutMethods.every(method => p.payoutMethods.includes(method))
-                    );
-                }
-                
-                if (filters.availability !== 'All') {
-                    filtered = filtered.filter(p => p.availability.includes(filters.availability) || p.availability.includes('Global') || p.availability.includes('Most Countries'));
+                if (filters.taskType !== 'All') {
+                    filtered = filtered.filter(p => p.taskTypes.includes(filters.taskType));
                 }
 
                 return filtered.sort((a, b) => {
@@ -593,18 +492,17 @@
                 <div className="min-h-screen bg-gray-950 text-gray-50 p-4 sm:p-6 lg:p-8">
                     <div className="max-w-7xl mx-auto">
                         <header className="text-center my-6 sm:my-8 md:my-12">
-                            <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-white">Paid-to-Play Platform Finder</h1>
+                            <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-white">GPT & Micro-task Finder</h1>
                              <div className="mt-4 text-base sm:text-lg text-gray-400">
                                 Showing <span className="text-2xl font-bold glowing-number">{filteredAndSortedPlatforms.length}</span> of <span className="font-bold text-white">{platformData.length}</span> platforms
                             </div>
-                            <p className="mt-2 text-base sm:text-lg text-gray-400 max-w-2xl mx-auto">Discover the best platforms to earn rewards for playing games and taking surveys.</p>
+                            <p className="mt-2 text-base sm:text-lg text-gray-400 max-w-2xl mx-auto">Find the best platforms for surveys, offers, and micro-jobs.</p>
                         </header>
 
                         <main>
-                            <Filters filters={filters} setFilters={setFilters} allPayoutMethods={allPayoutMethods} />
+                            <Filters filters={filters} setFilters={setFilters} allTaskTypes={allTaskTypes} />
                             
                             {filteredAndSortedPlatforms.length > 0 ? (
-                                /* This grid is responsive: 1 col on mobile, 2 on md, 3 on lg screens */
                                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                                     {filteredAndSortedPlatforms.map(platform => (
                                         <PlatformCard key={platform.id} platform={platform} />
@@ -616,10 +514,12 @@
                                     <p className="text-gray-400 mt-2">Try adjusting your filters to find more results.</p>
                                 </div>
                             )}
+                            
+                            <TipsSection />
                         </main>
                         
                         <footer className="text-center mt-12 py-6 border-t border-gray-800">
-                            <p className="text-sm text-gray-500">Ratings and information are based on publicly available data and may change.</p>
+                            <p className="text-sm text-gray-500">Pay rates and information are based on publicly available data and may change.</p>
                         </footer>
                     </div>
                 </div>
